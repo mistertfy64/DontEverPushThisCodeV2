@@ -217,8 +217,15 @@ jobs:
 
       # TODO#20: upload Trivy SARIF to Security tab
       # Action: github/codeql-action/upload-sarif@v3, category: trivy
-
+      - name: Upload Trivy SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        category: trivy
       # TODO#21: upload trivy-results.sarif as workflow artifact
+      - name: Upload trivy-results.sarif
+        uses: actions/upload-artifact@v7
+        with:
+          name: trivy-results
+          path: trivy-results.sarif
 
   # GATE#4: IaC scanning (Since there is no infrastructure cod here and it is out of scope for this class so we could skip it HELL YEAH!)
   # GATE#5: DAST (We have OWASP ZAP workshop here so we can skip this one too! YOHOOO!)
