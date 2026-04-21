@@ -124,7 +124,7 @@ jobs:
       # Action: github/codeql-action/analyze@v3
       # Set category so matrix runs don't collide in Security tab.
       - name: Perform CodeQL Analysis
-        uses: ???
+        uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{ matrix.language }}"
 
