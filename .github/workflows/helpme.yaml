@@ -162,7 +162,7 @@ jobs:
           # TODO#13: set fail threshold — block on CVSS >= ?
           # Hint: CVSS 7.0+ = HIGH
           args: >
-            --failOnCVSS ???
+            --failOnCVSS 7
             --enableRetired
 
       # TODO#14: upload Depcheck SARIF to GitHub Security tab
