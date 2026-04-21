@@ -157,7 +157,7 @@ jobs:
           project: "DontEverPushThisCodeV2"
           path: "." # scan current directory (which should be the repo root after checkout)
           # TODO#12: which format integrates with GitHub Security tab?
-          format: "SARIF"
+          format: "sarif"
           out: "reports"
           # TODO#13: set fail threshold — block on CVSS >= ?
           # Hint: CVSS 7.0+ = HIGH
@@ -200,7 +200,7 @@ jobs:
       # TODO#16: build the Docker image tagged `my-app:latest`
       #          Hint: `docker build -t ...`
       - name: Build Docker image
-        run: docker build -t my-app:latest
+        run: docker build -t my-app:latest .
 
       - name: Trivy Scan
         uses: aquasecurity/trivy-action@master
@@ -208,7 +208,7 @@ jobs:
         with:
           image-ref: "my-app:latest"
           # TODO#17: output format for Security tab integration
-          format: "SARIF"
+          format: "sarif"
           output: "trivy-results.sarif"
           # TODO#18: which severities should be reported? (UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL)
           severity: "HIGH"
@@ -219,7 +219,9 @@ jobs:
       # Action: github/codeql-action/upload-sarif@v3, category: trivy
       - name: Upload Trivy SARIF
         uses: github/codeql-action/upload-sarif@v3
-        category: trivy
+        with:
+          category: trivy
+          sarif_file: trivy-results.sarif
       # TODO#21: upload trivy-results.sarif as workflow artifact
       - name: Upload trivy-results.sarif
         uses: actions/upload-artifact@v7
