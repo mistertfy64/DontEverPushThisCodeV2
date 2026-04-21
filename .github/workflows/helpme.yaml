@@ -213,7 +213,7 @@ jobs:
           # TODO#18: which severities should be reported? (UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL)
           severity: "HIGH"
           # TODO#19: should we include CVEs with no available fix? set flag accordingly
-          # ignore-unfixed: ???
+          ignore-unfixed: true
 
       # TODO#20: upload Trivy SARIF to Security tab
       # Action: github/codeql-action/upload-sarif@v3, category: trivy
