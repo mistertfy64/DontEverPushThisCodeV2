@@ -183,10 +183,10 @@ jobs:
       # name: depcheck-report, path: reports/
       - name: Upload Depcheck HTML report as artifact
         if: always()
-        uses: ???
+        uses: actions/upload-artifact@v4
         with:
-          name: ???
-          ???: ???
+          name: depcheck-report
+          path: reports/
 
   # GATE#3: Container/Image scanning via Trivy (SARIF + artifact)
   image-scanning:
