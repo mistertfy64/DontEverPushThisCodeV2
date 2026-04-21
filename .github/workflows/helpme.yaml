@@ -57,12 +57,12 @@ jobs:
       #   - enable SARIF artifact upload + job summary via env vars
       # Q: difference between TruffleHog (verified live creds) vs Gitleaks (regex patterns)?
       - name: Run Gitleaks
-        uses: ???
+        uses: gitleaks/gitleaks-action@v2
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ???
-          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: ???
-          GITLEAKS_ENABLE_SUMMARY: ???
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: true
+          GITLEAKS_ENABLE_SUMMARY: true
 
   # GATE#1a: SAST via SonarQube
   sast-scan:
