@@ -75,7 +75,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # TODO#5: Sonar needs full history for blame/new-code detection. Set fetch-depth.
-          fetch-depth: ???
+          fetch-depth: 0
 
       # TODO#6: add SonarQube scan step.
       # Action: SonarSource/sonarqube-scan-action@v7.1.0
