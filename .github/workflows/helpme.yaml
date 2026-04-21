@@ -211,7 +211,7 @@ jobs:
           format: "SARIF"
           output: "trivy-results.sarif"
           # TODO#18: which severities should be reported? (UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL)
-          severity: "???"
+          severity: "HIGH"
           # TODO#19: should we include CVEs with no available fix? set flag accordingly
           # ignore-unfixed: ???
 
