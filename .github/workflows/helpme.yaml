@@ -221,6 +221,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           category: trivy
+          sarif_file: trivy-results.sarif
       # TODO#21: upload trivy-results.sarif as workflow artifact
       - name: Upload trivy-results.sarif
         uses: actions/upload-artifact@v7
