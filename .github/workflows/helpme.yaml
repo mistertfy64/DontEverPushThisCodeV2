@@ -31,7 +31,7 @@ jobs:
         with:
           # TODO#1: why do secret scanners need git history?
           # Set fetch-depth to 0 so TruffleHog can diff base..HEAD across all commits.
-          fetch-depth: ???
+          fetch-depth: 0
 
         # TruffleHog scans code + commit history for verified secrets (live creds). It can be noisy, but is a great first line of defense.
       - name: Run TruffleHog
