@@ -45,7 +45,7 @@ jobs:
           # TODO#3: add extra_args flag to report ONLY VERIFIED secrets (reduce noise)
           # extra_args: ???
           base: ${{ github.event.repository.default_branch }}
-          head: HEAD
+          head: HEAD^
           extra_args: --debug --only-verified
 
       # Gitleaks scans code + history for regex patterns that look like secrets. It can be more accurate than TruffleHog, but may miss live creds that don't match known patterns.
@@ -158,7 +158,7 @@ jobs:
           path: "." # scan current directory (which should be the repo root after checkout)
           # TODO#12: which format integrates with GitHub Security tab?
           format: "sarif"
-          out: "reports"
+          out: "reports/dependency-check-report.sarif"
           # TODO#13: set fail threshold — block on CVSS >= ?
           # Hint: CVSS 7.0+ = HIGH
           args: >
